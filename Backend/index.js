@@ -10,12 +10,9 @@ app.use(express.json())
 // app.use('/',(req,res) => {
 //     res.send("<h1>hello</h1>")
 // })
-
-
-
 dotenv.config()
 
-mongoose.connect("mongodb+srv://raghuram:raghuram@cluster0.ea1ef.mongodb.net/signUp",()=>console.log("Connected to data base"))
+mongoose.connect(process.env.DATABASE_ACCESS,()=>console.log("Connected to data base"))
 app.get('/',(req,res)=>{
     res.send("<h1>Raghu</h1>");
 })

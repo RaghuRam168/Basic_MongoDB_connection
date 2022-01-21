@@ -1,16 +1,30 @@
 import './App.css';
-import SignUp from './components/SignUp';
-const App = () => {
-
-  const onSignIn= (data)=>{
-    console.log(data)
-  }
-
+import LoginPage from './pages/LoginScreen/LoginPage';
+import Navbar from './components/Navbar/Navbar';
+import RegisterPage from './pages/RegisterScreen/RegisterPage';
+import{BrowserRouter as Router , Routes , Route , Link} from 'react-router-dom'
+import Error from './pages/ErrorPage';
+import Dashboard from './pages/Dashboard/Dashboard';
+function App() {
   return (
-    <>
-   <h1>React</h1>
-     <SignUp onSignIn={onSignIn} />
-    </>
+
+  // <LoginPage/>
+  //   <div>
+  //   <Navbar/>
+  
+  //   <RegisterPage/>
+  //  </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+          <Route path='/' element={<LoginPage/>} />
+          <Route path='/register' element={<RegisterPage/>} />
+          <Route path='/dash-board' element={<Dashboard/>}/>
+          <Route path='*' element={<Error/>}/>
+      </Routes>
+    </Router>
+
+
   );
 }
 
